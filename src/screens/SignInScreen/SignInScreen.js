@@ -9,25 +9,41 @@ const SignInScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
+  const onSignInPressed = () =>{
+    console.warn('Sign in');
+  };
+
+  const onForgotPasswordPressed = () =>{
+    console.warn('OnForgotPasswordPressed');
+  };
+
+
 
 
   return (
     <View>
       <CustomInput 
-      placeholder="Username" 
+      placeholder="Email" 
       value={username} 
       setValue={setUsername}>
       </CustomInput>
 
       <CustomInput 
-      placeholder="Password" 
+      placeholder="Mot de passe" 
       value={password} 
-      setValue={setPassword}>
-      secureTextEntry
+      setValue={setPassword}
+      secureTextEntry={true}
+      >
+      
       </CustomInput>
 
-      <CustumButton>
-        
+      <CustumButton text="Connexion" onPress={onSignInPressed}></CustumButton>
+      <CustumButton 
+      text="Mot de passe oublié ?" 
+      onPress={onForgotPasswordPressed} 
+      type= "TERTIARY"
+      >
+
       </CustumButton>
     </View>
   );
@@ -37,6 +53,7 @@ const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
     padding: 20,
+    
   },
 })
 
